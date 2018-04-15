@@ -9,14 +9,14 @@ const config = {
 };
 firebase.initializeApp(config);
 
-var db = firebase.database();
-var character = db.ref('characters');
+let db = firebase.database();
+let character = db.ref('characters');
 
 console.log(character);
 
 character.once('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
-        var childData = childSnapshot.val();
+        let childData = childSnapshot.val();
         console.log(childData);
         document.getElementById('characterList').innerHTML += '<li>' + childData.name +
             '</li>';
